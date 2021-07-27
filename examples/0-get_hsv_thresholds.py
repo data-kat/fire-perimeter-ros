@@ -2,12 +2,12 @@
 """
 Created on Mon Jul 26 13:33:32 2021
 
-@author: kme96
+@author: K Melnik
 """
 
 import os
 
-wd_path = r"C:\Users\kme96\OneDrive - University of Canterbury\Fire-front-edge-detection-new\VFPT"
+wd_path = r"C:\Users\kme96\OneDrive - University of Canterbury\Fire-front-edge-detection\fire-perimeter-ros"
 os.chdir(wd_path)
 
 
@@ -51,8 +51,13 @@ base.check_ranges_on_video(video_fn_p1, range_list_p1)
 
 # Reduce the frame rate of a video
 
+video_fn_long = r"C:\Users\kme96\OneDrive - University of Canterbury\Fire-front-edge-detection\Fire-front-edge-detection-new\VFPT\block1_burn1_stabilized.mp4"
 
-video_p1.save_video_low_fps(new_fps = None, stop_at_frame = None)
+video_long = base.VideoExtractor(video_fn_long)
+
+video_long.frame_rate
+
+video_long.save_video_low_fps(new_fps = 3, stop_at_frame = None)
 
 
 

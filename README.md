@@ -1,8 +1,14 @@
+---
+output: html_document
+---
 # VFPT - Visual Fire Perimeter Tracking
 
 Welcome to Visual Fire Perimeter Tracking. This package is designed to process a stabilized overhead visible-spectrum video of a spreading fire and output a 3-dimensional array of the same width and height as the video, with each pixel containing the rate of fire spread, the direction of fire spread, and the frame number at which the firefront first reached the given pixel.
 
 Current Version: 0.1
+
+DOI: 10.5281/zenodo.5138773
+
 
 
 ## 1. Introduction
@@ -13,6 +19,13 @@ In order to obtain the resulting array of fire spread vectors, the following ope
 - color thresholding to identify flaming and burnt ('fire-affected') areas in each frame of the video
 - constructing a fire progressing array by combining the fire-affected areas from all frames into one array
 - analyze the fire progression array to calculate the rate and direction of fire spread
+
+The preprocessing steps that are necessary for running the algorithm are:
+
+1. Stabilize the video (eg. https://www.youtube.com/watch?v=X8s1kZ-HFww or the included Blender_video_stabilization_user_guide.docx)
+2. Georeference the video using ArcMap or other GIS software (eg. https://www.youtube.com/watch?v=PHtxbpboDro). For New Zealand, set the projection to New Zealand Transverse Mercator 2000 (NZTM2000)
+3. Downsample the video to the desired frame rate (python)
+4. Figure out HSV thresholds (python)
 
 
 ## 2. Segment out fire-affected area

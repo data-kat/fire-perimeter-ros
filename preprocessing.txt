@@ -1,9 +1,0 @@
-
-
-
-1. Stabilize the video (eg. https://www.youtube.com/watch?v=X8s1kZ-HFww or the included Blender_video_stabilization_user_guide.docx)
-2. Georeference the video using ArcMap or other GIS software (eg. https://www.youtube.com/watch?v=PHtxbpboDro)
-3. Downsample the video to the desired frame rate (python)
-4. Figure out HSV thresholds (python)
-
-
