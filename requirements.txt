@@ -4,6 +4,6 @@
 cv2 (conda install -c conda-forge opencv)
 gdal (conda install -c conda-forge gdal)
 matplotlib (conda install matplotlib)
-affine (conda install affine
+affine (conda install affine)
 fiona (conda install -c conda-forge fiona)
 

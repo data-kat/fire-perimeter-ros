@@ -13,7 +13,7 @@ Created on Thu May 20 17:21:48 2021
 import os
 import numpy as np
 
-wd_path = r"C:\Users\kme96\OneDrive - University of Canterbury\Fire-front-edge-detection-new\VFPT"
+wd_path = r"C:\Users\Administrator\OneDrive - University of Canterbury\Fire-front-edge-detection\fire-perimeter-ros"
 os.chdir(wd_path)
 
 from functions import base
