@@ -183,14 +183,30 @@ def get_ros_from_progress_array(progress_array, levels, output, max_interval = N
     return ros_arr
 
 
+def get_pixel_xsize_ysize(geotransform):
+    """
+    Note about geotransform format:
+    [0] x-coordinate of the center of the upper left pixel
+    [1] x-component of the pixel width (x-scale) (A)
+    [2] y-component of the pixel width (y-skew) (D)
+    [3] y-coordinate of the center of the upper left pixel (F)
+    [4] x-component of the pixel height (x-skew) (B)
+    [5] y-component of the pixel height (y-scale), typically negative (E)  
+    """
+
+    pixel_xsize = np.sqrt((geotransform[1]**2 + geotransform[2]**2))
+    pixel_ysize = np.sqrt((geotransform[4]**2 + geotransform[5]**2))
+    
+    return(pixel_xsize, pixel_ysize)
+
+
 def xy_array_ppf_to_ms(array, geotransform, fps):
     
     assert(array.shape[2] == 3)    
     array_ms = np.zeros(array.shape)
     
-    pixel_xsize = abs(geotransform[1])
-    pixel_ysize = abs(geotransform[5])
-    
+    pixel_xsize, pixel_ysize = get_pixel_xsize_ysize(geotransform)
+        
     array_ms[:, :, 0] = array[:, :, 0] * pixel_xsize * fps
     array_ms[:, :, 1] = array[:, :, 1] * pixel_ysize * fps
     array_ms[:, :, 2] = array[:, :, 2]
